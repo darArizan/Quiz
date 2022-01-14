@@ -5,6 +5,7 @@ import './AnswerButton.scss';
 const AnswerButton = () => (
   <div className="AnswerButton">
     AnswerButton Component
+    wtf woooow
   </div>
 );
 
