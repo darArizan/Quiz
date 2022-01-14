@@ -1,15 +1,75 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React,{useState} from 'react';
 import './Quiz.scss';
+import  Header from '../Header/Header'
+import Content from '../Content/Content'
+import ControlButtons from '../ControlButtons/ControlButtons'
 
-const Quiz = () => (
-  <div className="Quiz">
-    Quiz Component
-  </div>
-);
+export default function Quiz() {
 
-Quiz.propTypes = {};
+const [points, setPoints] = useState(0)
+const [index, setIndex] = useState(1)
+const [selected, setSelected] = useState([])
 
-Quiz.defaultProps = {};
 
-export default Quiz;
+  const data = {
+    questions: [
+      {
+          id: 1,
+          title: "Joey doesnt share what?",
+          answerOptions: [
+              {
+                  answerText: "A: clothes",
+                  answerId: 1
+              },
+              {
+                  answerText: "B: food",
+                  answerId:2
+              },
+              {
+                  answerText: "C: advice",
+                  answerId: 3
+              },
+              {
+                  answerText: "D: hugs",
+                  answerId: 4
+              }
+          ]
+      },
+      {
+        id: 2,
+        title: "Joey doesnt share what?",
+        answerOptions: [
+            {
+                answerText: "A: clothes",
+                answerId: 1
+            },
+            {
+                answerText: "B: food",
+                answerId:2
+            },
+            {
+                answerText: "C: advice",
+                answerId: 3
+            },
+            {
+                answerText: "D: hugs",
+                answerId: 4
+            }
+        ]
+    }
+    ]
+  }
+
+  
+  return (
+    <div>
+      <Header points={points}/>
+      <Content data={data}/>
+      <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected}/>
+    </div>
+  )
+}
+
+
+
+

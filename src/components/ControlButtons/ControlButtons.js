@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './ControlButtons.scss';
 
-const ControlButtons = () => (
-  <div className="ControlButtons">
-    ControlButtons Component
-  </div>
-);
+import React from 'react'
 
-ControlButtons.propTypes = {};
+export default function ControlButtons({points,index,setPoints,selected}) {
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
-ControlButtons.defaultProps = {};
 
-export default ControlButtons;
+
