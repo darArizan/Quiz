@@ -8,7 +8,7 @@ const AnswerButton = ({text, i, id, toggleAnswerId}) => {
   let abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
  
   const handleAnswer = () => {
-    toggleAnswerId(clicked, id);
+    toggleAnswerId(id);
     setClicked(!clicked)
   }
 

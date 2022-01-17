@@ -9,8 +9,9 @@ export default function Quiz() {
 const [points, setPoints] = useState(0)
 const [index, setIndex] = useState(1)
 const [selected, setSelected] = useState([])
+const [correct, setCorrect] = useState([])
 
-const toggleAnswerId = (isClicked, answerId) => {
+const toggleAnswerId = (answerId) => {
     // console.log(isClicked, answerId);
     if(selected.indexOf(answerId) == -1){
         setSelected([...selected, answerId])
