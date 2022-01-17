@@ -10,6 +10,22 @@ const [points, setPoints] = useState(0)
 const [index, setIndex] = useState(1)
 const [selected, setSelected] = useState([])
 
+const toggleAnswerId = (isClicked, answerId) => {
+    // console.log(isClicked, answerId);
+    if(selected.indexOf(answerId) == -1){
+        setSelected([...selected, answerId])
+    }else{
+        const newSelected = selected.filter((current, index) => {
+            if (current !== answerId) {     
+                return current;
+            }          
+            return false;          
+            });
+     
+            setSelected(newSelected);
+    }
+}
+console.log(selected);
 
   const data = {
     questions: [
@@ -18,41 +34,41 @@ const [selected, setSelected] = useState([])
           title: "Joey doesnt share what?",
           answerOptions: [
               {
-                  answerText: "A: clothes",
+                  answerText: "clothes",
                   answerId: 1
               },
               {
-                  answerText: "B: food",
+                  answerText: "food",
                   answerId:2
               },
               {
-                  answerText: "C: advice",
+                  answerText: "advice",
                   answerId: 3
               },
               {
-                  answerText: "D: hugs",
+                  answerText: "hugs",
                   answerId: 4
               }
           ]
       },
       {
         id: 2,
-        title: "Joey doesnt share what?",
+        title: "Joey doesnt share what2?",
         answerOptions: [
             {
-                answerText: "A: clothes",
+                answerText: "clothes2",
                 answerId: 1
             },
             {
-                answerText: "B: food",
+                answerText: "food2",
                 answerId:2
             },
             {
-                answerText: "C: advice",
+                answerText: "advice2",
                 answerId: 3
             },
             {
-                answerText: "D: hugs",
+                answerText: "hugs2",
                 answerId: 4
             }
         ]
@@ -62,9 +78,9 @@ const [selected, setSelected] = useState([])
 
   
   return (
-    <div>
+    <div className="quiz">
       <Header points={points}/>
-      <Content data={data} index={index}/>
+      <Content data={data} index={index} toggleAnswerId={toggleAnswerId}/>
       <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected}/>
     </div>
   )

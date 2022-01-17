@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AnswerButton.scss';
 
-const AnswerButton = () => (
-  <div className="AnswerButton">
-    AnswerButton Component
-  </div>
-);
+const AnswerButton = ({text, i, id, toggleAnswerId}) => { 
+  const[clicked, setClicked] = useState(false)
+ 
+  let abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+ 
+  const handleAnswer = () => {
+    toggleAnswerId(clicked, id);
+    setClicked(!clicked)
+  }
 
-AnswerButton.propTypes = {};
+  return(
+    <button onClick={handleAnswer} className="content__answer">
+      {abc[i]}: {text}
+    </button>
+  )
+};
 
-AnswerButton.defaultProps = {};
 
 export default AnswerButton;
