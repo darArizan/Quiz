@@ -64,7 +64,7 @@ const [selected, setSelected] = useState([])
   return (
     <div>
       <Header points={points}/>
-      <Content data={data}/>
+      <Content data={data} index={index}/>
       <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected}/>
     </div>
   )
