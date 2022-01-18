@@ -99,6 +99,30 @@ const toggleAnswerId = (answerId) => {
     ]
   }
 
+  const correctData = {
+    correctAnswers: [
+      {
+        id: 1,
+        correct: [
+          2
+        ]
+      },
+      {
+        id: 2,
+        correct: [
+          2,
+          3
+        ]
+      },
+      {
+        id: 2,
+        correct: [
+          1,
+          4
+        ]
+      }
+    ]
+  } 
   
   return (
     <div className="quiz">
