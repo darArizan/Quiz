@@ -26,7 +26,7 @@ const toggleAnswerId = (answerId) => {
             setSelected(newSelected);
     }
 }
-console.log(selected);
+
 
   const data = {
     questions: [
@@ -73,6 +73,28 @@ console.log(selected);
                 answerId: 4
             }
         ]
+    },
+    {
+        id: 3,
+        title: "Joey doesnt share what2?",
+        answerOptions: [
+            {
+                answerText: "clothes3",
+                answerId: 1
+            },
+            {
+                answerText: "food3",
+                answerId:2
+            },
+            {
+                answerText: "advice3",
+                answerId: 3
+            },
+            {
+                answerText: "hugs3",
+                answerId: 4
+            }
+        ]
     }
     ]
   }
@@ -82,7 +104,7 @@ console.log(selected);
     <div className="quiz">
       <Header points={points}/>
       <Content data={data} index={index} toggleAnswerId={toggleAnswerId}/>
-      <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected}/>
+      <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setIndex={setIndex} data={data.questions} />
     </div>
   )
 }
