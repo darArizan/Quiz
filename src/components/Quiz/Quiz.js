@@ -27,6 +27,7 @@ const toggleAnswerId = (answerId) => {
     }
 }
 
+console.log(selected);
 
   const data = {
     questions: [
@@ -99,36 +100,12 @@ const toggleAnswerId = (answerId) => {
     ]
   }
 
-  const correctData = {
-    correctAnswers: [
-      {
-        id: 1,
-        correct: [
-          2
-        ]
-      },
-      {
-        id: 2,
-        correct: [
-          2,
-          3
-        ]
-      },
-      {
-        id: 2,
-        correct: [
-          1,
-          4
-        ]
-      }
-    ]
-  } 
   
   return (
     <div className="quiz">
       <Header points={points}/>
       <Content data={data} index={index} toggleAnswerId={toggleAnswerId}/>
-      <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setIndex={setIndex} data={data.questions} />
+      <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setSelected={setSelected} setIndex={setIndex} data={data.questions} setCorrect={setCorrect} correct={correct} />
     </div>
   )
 }
