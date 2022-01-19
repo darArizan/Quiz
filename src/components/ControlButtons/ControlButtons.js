@@ -48,7 +48,6 @@ export default function ControlButtons({points, index, setPoints, selected, setS
    correctData.correctAnswers.filter(el => {
       if(index === el.id) { 
         setCorrect(el.correct);
-        console.log(correct);
       }      
     })
   }
@@ -60,8 +59,6 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   }, [correct])
 
   function handlePoints(){
-    console.log(selected, correct);
-    console.log(selected.sort().toString(), correct.toString());
     if(selected.sort().toString() === correct.toString()){
       setPoints(points + 1);
     }

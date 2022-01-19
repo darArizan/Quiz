@@ -1,1 +1,15 @@
-.AnswerButton {}
+.content__answer{
+
+    line-height: 40px;
+    
+    background-color: beige;
+    
+    border: 1ps solid rgb(249, 205, 205);
+    
+    &--select-correct{
+    
+    background-color: chartreuse;
+    
+    }
+    
+    }

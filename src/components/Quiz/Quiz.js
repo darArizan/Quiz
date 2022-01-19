@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './Quiz.scss';
 import  Header from '../Header/Header'
 import Content from '../Content/Content'
 import ControlButtons from '../ControlButtons/ControlButtons'
+import AnswerButton from '../AnswerButton/AnswerButton';
 
 export default function Quiz() {
 
@@ -11,8 +12,10 @@ const [index, setIndex] = useState(1)
 const [selected, setSelected] = useState([])
 const [correct, setCorrect] = useState([])
 
+
+
+
 const toggleAnswerId = (answerId) => {
-    // console.log(isClicked, answerId);
     if(selected.indexOf(answerId) == -1){
         setSelected([...selected, answerId])
     }else{
@@ -27,7 +30,7 @@ const toggleAnswerId = (answerId) => {
     }
 }
 
-console.log(selected);
+
 
   const data = {
     questions: [
@@ -104,7 +107,7 @@ console.log(selected);
   return (
     <div className="quiz">
       <Header points={points}/>
-      <Content data={data} index={index} toggleAnswerId={toggleAnswerId}/>
+      <Content data={data} index={index} toggleAnswerId={toggleAnswerId} selected={selected} correct={correct}/>
       <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setSelected={setSelected} setIndex={setIndex} data={data.questions} setCorrect={setCorrect} correct={correct} />
     </div>
   )
