@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './ControlButtons.scss';
  
 
@@ -20,7 +20,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
         ]
       },
       {
-        id: 2,
+        id: 3,
         correct: [
           1,
           4
@@ -30,29 +30,43 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   } 
 
   const[isClicked,setIsClicked] = useState(false)
-
+  
   function handleSubmit(){
     setIsClicked(!isClicked)
-    getCorrectAnswer();
-    setSelected([]);
-  }
+    getCorrectAnswer(); 
+    
 
+  }
+  
   function handleNext(){
     setIndex(index+1)
     setIsClicked(!isClicked)
-  
+    setSelected([]);
   }
 
   function getCorrectAnswer() {
-   const newArray = correctData.correctAnswers.filter(el => {
-      if(index === el.id) {
-          return el.correct;
-      }
-      setCorrect(newArray)
+   correctData.correctAnswers.filter(el => {
+      if(index === el.id) { 
+        setCorrect(el.correct);
+        console.log(correct);
+      }      
     })
   }
+  
+  useEffect(() => {
+    if(correct.length > 0){
+      handlePoints()
+    }; 
+  }, [correct])
 
-  // console.log(index,data.length);
+  function handlePoints(){
+    console.log(selected, correct);
+    console.log(selected.sort().toString(), correct.toString());
+    if(selected.sort().toString() === correct.toString()){
+      setPoints(points + 1);
+    }
+  }
+
 
   return (
     <div className="quiz__buttons">

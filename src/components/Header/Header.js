@@ -5,7 +5,7 @@ export default function Header({points}) {
   // console.log(points);
   return (
     <div>
-      
+      {points}
     </div>
   )
 }
