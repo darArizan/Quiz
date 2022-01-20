@@ -34,7 +34,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   function handleSubmit(){
     setToggleCtrlBtn(!toggleCtrlBtn)
     getCorrectAnswer(); 
-    // storeAnswers()
+   
   }
   
   function handleNext(){
@@ -72,13 +72,19 @@ export default function ControlButtons({points, index, setPoints, selected, setS
 
 
   }
- console.log(storedAnswers);
+  function handlePrevious(){
+   
+    setIndex(index-1)
+    setSelected(storedAnswers[index-1].selectedAnswers)
+    setCorrect(storedAnswers[index-1].correctAnswers)
+  }
+
 
 
   return (
     <div className="quiz__buttons">
 
-      <div>{index>1 ? <button className="quiz__button" onClick={() => setIndex(index-1)}>Previous</button> : ''}</div>
+      <div>{index>1 ? <button className="quiz__button" onClick={handlePrevious}>Previous</button> : ''}</div>
       <div>{!toggleCtrlBtn ? 
         <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
          index !== data.length ?
