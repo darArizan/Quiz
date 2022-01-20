@@ -3,7 +3,7 @@ import './Quiz.scss';
 import  Header from '../Header/Header'
 import Content from '../Content/Content'
 import ControlButtons from '../ControlButtons/ControlButtons'
-import AnswerButton from '../AnswerButton/AnswerButton';
+
 
 export default function Quiz() {
 
@@ -11,6 +11,7 @@ const [points, setPoints] = useState(0)
 const [index, setIndex] = useState(1)
 const [selected, setSelected] = useState([])
 const [correct, setCorrect] = useState([])
+const [storedAnswers, setStoredAnswers]=useState(null)
 
 
 
@@ -30,6 +31,9 @@ const toggleAnswerId = (answerId) => {
     }
 }
 
+useEffect(()=>{
+setStoredAnswers(data.questions)
+},[])
 
 
     const data = {
@@ -55,6 +59,7 @@ const toggleAnswerId = (answerId) => {
                     answerId: 4
                 }
             ]
+
         },
         {
             id: 2,
@@ -108,7 +113,11 @@ const toggleAnswerId = (answerId) => {
         <div className="quiz">
             <Header points={points}/>
             <Content data={data} index={index} toggleAnswerId={toggleAnswerId} selected={selected} correct={correct}/>
-            <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setSelected={setSelected} setIndex={setIndex} data={data.questions} setCorrect={setCorrect} correct={correct} />
+            <ControlButtons points={points} index={index} 
+            setPoints={setPoints} selected={selected} 
+            setSelected={setSelected} setIndex={setIndex} 
+            data={data.questions} setCorrect={setCorrect} 
+            correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}/>
         </div>
     )
 }

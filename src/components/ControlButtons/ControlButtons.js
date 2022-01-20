@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import './ControlButtons.scss';
  
 
-export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct, setCorrect}) {
+export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct, setCorrect,setStoredAnswers,storedAnswers}) {
 
   const correctData = {
     correctAnswers: [
@@ -34,6 +34,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   function handleSubmit(){
     setToggleCtrlBtn(!toggleCtrlBtn)
     getCorrectAnswer(); 
+    // storeAnswers()
   }
   
   function handleNext(){
@@ -54,6 +55,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   useEffect(() => {
     if(correct.length > 0){
       handlePoints()
+      storeAnswers()
     }; 
   }, [correct])
 
@@ -62,6 +64,15 @@ export default function ControlButtons({points, index, setPoints, selected, setS
       setPoints(points + 1);
     }
   }
+  function storeAnswers(){
+   
+    storedAnswers[index-1].selectedAnswers=selected
+    storedAnswers[index-1].correctAnswers=correct
+    setStoredAnswers(storedAnswers)
+
+
+  }
+ console.log(storedAnswers);
 
 
   return (
