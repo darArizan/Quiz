@@ -29,19 +29,18 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     ]
   } 
 
-  const[isClicked,setIsClicked] = useState(false)
+  const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
   
   function handleSubmit(){
-    setIsClicked(!isClicked)
+    setToggleCtrlBtn(!toggleCtrlBtn)
     getCorrectAnswer(); 
-    
-
   }
   
   function handleNext(){
     setIndex(index+1)
-    setIsClicked(!isClicked)
+    setToggleCtrlBtn(!toggleCtrlBtn)
     setSelected([]);
+    setCorrect([])
   }
 
   function getCorrectAnswer() {
@@ -69,9 +68,12 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     <div className="quiz__buttons">
 
       <div>{index>1 ? <button className="quiz__button" onClick={() => setIndex(index-1)}>Previous</button> : ''}</div>
-    
-      <div>{!isClicked ? <button className="quiz__button" onClick={handleSubmit}>Submit</button> : index !== data.length ? <button onClick={handleNext} className="quiz__button">Next</button> : <button className="quiz__button">Preview</button>}</div>
-    
+      <div>{!toggleCtrlBtn ? 
+        <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
+         index !== data.length ?
+           <button onClick={handleNext} className="quiz__button">Next</button> :
+           <button className="quiz__button">Preview</button>
+      }</div>
     </div>
   )
 }

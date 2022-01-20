@@ -13,7 +13,7 @@ const AnswerButton = ({text, i, id, toggleAnswerId,stateClass}) => {
   }
 
   return(
-    <button onClick={handleAnswer} className={`content__answer ${stateClass} `}>
+    <button onClick={handleAnswer} className={!clicked? `content__answer ${stateClass}`: `content__answer content__answer--selected ${stateClass}`}>
       {abc[i]}: {text}
     </button>
   )

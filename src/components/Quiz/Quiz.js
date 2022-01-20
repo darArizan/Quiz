@@ -32,85 +32,85 @@ const toggleAnswerId = (answerId) => {
 
 
 
-  const data = {
-    questions: [
-      {
-          id: 1,
-          title: "Joey doesnt share what?",
-          answerOptions: [
-              {
-                  answerText: "clothes",
-                  answerId: 1
-              },
-              {
-                  answerText: "food",
-                  answerId:2
-              },
-              {
-                  answerText: "advice",
-                  answerId: 3
-              },
-              {
-                  answerText: "hugs",
-                  answerId: 4
-              }
-          ]
-      },
-      {
-        id: 2,
-        title: "Joey doesnt share what2?",
-        answerOptions: [
-            {
-                answerText: "clothes2",
-                answerId: 1
-            },
-            {
-                answerText: "food2",
-                answerId:2
-            },
-            {
-                answerText: "advice2",
-                answerId: 3
-            },
-            {
-                answerText: "hugs2",
-                answerId: 4
-            }
-        ]
-    },
-    {
-        id: 3,
-        title: "Joey doesnt share what2?",
-        answerOptions: [
-            {
-                answerText: "clothes3",
-                answerId: 1
-            },
-            {
-                answerText: "food3",
-                answerId:2
-            },
-            {
-                answerText: "advice3",
-                answerId: 3
-            },
-            {
-                answerText: "hugs3",
-                answerId: 4
-            }
+    const data = {
+        questions: [
+        {
+            id: 1,
+            title: "Joey doesnt share what?",
+            answerOptions: [
+                {
+                    answerText: "clothes",
+                    answerId: 1
+                },
+                {
+                    answerText: "food",
+                    answerId:2
+                },
+                {
+                    answerText: "advice",
+                    answerId: 3
+                },
+                {
+                    answerText: "hugs",
+                    answerId: 4
+                }
+            ]
+        },
+        {
+            id: 2,
+            title: "Joey doesnt share what2?",
+            answerOptions: [
+                {
+                    answerText: "clothes2",
+                    answerId: 1
+                },
+                {
+                    answerText: "food2",
+                    answerId:2
+                },
+                {
+                    answerText: "advice2",
+                    answerId: 3
+                },
+                {
+                    answerText: "hugs2",
+                    answerId: 4
+                }
+            ]
+        },
+        {
+            id: 3,
+            title: "Joey doesnt share what2?",
+            answerOptions: [
+                {
+                    answerText: "clothes3",
+                    answerId: 1
+                },
+                {
+                    answerText: "food3",
+                    answerId:2
+                },
+                {
+                    answerText: "advice3",
+                    answerId: 3
+                },
+                {
+                    answerText: "hugs3",
+                    answerId: 4
+                }
+            ]
+        }
         ]
     }
-    ]
-  }
 
-  
-  return (
-    <div className="quiz">
-      <Header points={points}/>
-      <Content data={data} index={index} toggleAnswerId={toggleAnswerId} selected={selected} correct={correct}/>
-      <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setSelected={setSelected} setIndex={setIndex} data={data.questions} setCorrect={setCorrect} correct={correct} />
-    </div>
-  )
+
+    return (
+        <div className="quiz">
+            <Header points={points}/>
+            <Content data={data} index={index} toggleAnswerId={toggleAnswerId} selected={selected} correct={correct}/>
+            <ControlButtons points={points} index={index} setPoints={setPoints} selected={selected} setSelected={setSelected} setIndex={setIndex} data={data.questions} setCorrect={setCorrect} correct={correct} />
+        </div>
+    )
 }
 
 
