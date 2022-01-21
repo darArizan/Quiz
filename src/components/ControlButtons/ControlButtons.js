@@ -64,16 +64,14 @@ export default function ControlButtons({points, index, setPoints, selected, setS
       setPoints(points + 1);
     }
   }
+
   function storeAnswers(){
-   
     storedAnswers[index-1].selectedAnswers=selected
     storedAnswers[index-1].correctAnswers=correct
     setStoredAnswers(storedAnswers)
-
-
   }
+
   function handlePrevious(){
-   
     setIndex(index-1)
     setSelected(storedAnswers[index-1].selectedAnswers)
     setCorrect(storedAnswers[index-1].correctAnswers)
@@ -87,9 +85,9 @@ export default function ControlButtons({points, index, setPoints, selected, setS
       <div>{index>1 ? <button className="quiz__button" onClick={handlePrevious}>Previous</button> : ''}</div>
       <div>{!toggleCtrlBtn ? 
         <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
-         index !== data.length ?
-           <button onClick={handleNext} className="quiz__button">Next</button> :
-           <button className="quiz__button">Preview</button>
+        index !== data.length ?
+          <button onClick={handleNext} className="quiz__button">Next</button> :
+          <button className="quiz__button">Preview</button>
       }</div>
     </div>
   )
@@ -97,3 +95,4 @@ export default function ControlButtons({points, index, setPoints, selected, setS
 
 
 
+                   

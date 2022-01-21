@@ -16,24 +16,24 @@ const [storedAnswers, setStoredAnswers]=useState(null)
 
 
 
-const toggleAnswerId = (answerId) => {
-    if(selected.indexOf(answerId) == -1){
-        setSelected([...selected, answerId])
-    }else{
-        const newSelected = selected.filter((current, index) => {
-            if (current !== answerId) {     
-                return current;
-            }          
-            return false;          
-            });
-     
-            setSelected(newSelected);
+    const toggleAnswerId = (answerId) => {
+        if(selected.indexOf(answerId) == -1){
+            setSelected([...selected, answerId])
+        }else{
+            const newSelected = selected.filter((current, index) => {
+                if (current !== answerId) {     
+                    return current;
+                }          
+                return false;          
+                });
+        
+                setSelected(newSelected);
+        }
     }
-}
 
-useEffect(()=>{
-setStoredAnswers(data.questions)
-},[])
+    useEffect(()=>{
+        setStoredAnswers(data.questions)
+    },[])
 
 
     const data = {

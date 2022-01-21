@@ -15,8 +15,8 @@ export default function Content({data, index, toggleAnswerId,correct,selected}) 
               <div className="content__title">{el.title}</div>
               {el.answerOptions.map((el, index) => {
           
-                if(correct.toString()){
-               
+                if(correct.length){
+                   
                   if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) !== -1){
                     
                       return  <AnswerButton key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--selected-correct"}/>
