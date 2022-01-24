@@ -1,1 +1,7 @@
-// .ControlButtons {}
+.quiz__button {
+    &--disabled {
+        opacity: .7;
+        pointer-events: none;
+        user-select: none;
+    }
+}

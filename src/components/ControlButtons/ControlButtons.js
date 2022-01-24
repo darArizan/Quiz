@@ -4,6 +4,10 @@ import './ControlButtons.scss';
 
 export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct, setCorrect,setStoredAnswers,storedAnswers}) {
 
+  const[isPrev, setIsPrev] = useState(false);
+  const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
+  const[isNext, setIsNext] = useState(false)
+  
   const correctData = {
     correctAnswers: [
       {
@@ -29,7 +33,6 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     ]
   } 
 
-  const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
   
   function handleSubmit(){
     setToggleCtrlBtn(!toggleCtrlBtn)
@@ -40,8 +43,10 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   function handleNext(){
     setIndex(index+1)
     setToggleCtrlBtn(!toggleCtrlBtn)
+    setIsNext(!isNext)
     setSelected([]);
     setCorrect([])
+    // setIsPrev(false)
   }
 
   function getCorrectAnswer() {
@@ -71,19 +76,29 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     setStoredAnswers(storedAnswers)
   }
 
+  useEffect(() => {
+    if(isPrev) {
+      setSelected(storedAnswers[index-1].selectedAnswers)
+      setCorrect(storedAnswers[index-1].correctAnswers) 
+    }
+    else if(isNext && storedAnswers[index].selectedAnswers) {
+      setSelected(storedAnswers[index].selectedAnswers)
+      setCorrect(storedAnswers[index].correctAnswers) 
+    } 
+  },[isPrev,isNext])
+
   function handlePrevious(){
     setIndex(index-1)
-    setSelected(storedAnswers[index-1].selectedAnswers)
-    setCorrect(storedAnswers[index-1].correctAnswers)
+    setIsPrev(!isPrev)
   }
-
-
-
+  
+  
+  
   return (
     <div className="quiz__buttons">
 
-      <div>{index>1 ? <button className="quiz__button" onClick={handlePrevious}>Previous</button> : ''}</div>
-      <div>{!toggleCtrlBtn ? 
+      <div>{index>1 ? <button className={`quiz__button ${isPrev ? 'quiz__button--disabled' : ''}`} onClick={handlePrevious}>Previous</button> : ''}</div>
+      <div>{!toggleCtrlBtn && !isPrev ? 
         <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
         index !== data.length ?
           <button onClick={handleNext} className="quiz__button">Next</button> :

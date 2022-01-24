@@ -17,7 +17,7 @@ const [storedAnswers, setStoredAnswers]=useState(null)
 
 
     const toggleAnswerId = (answerId) => {
-        if(selected.indexOf(answerId) == -1){
+        if(selected.indexOf(answerId) === -1){
             setSelected([...selected, answerId])
         }else{
             const newSelected = selected.filter((current, index) => {
@@ -85,7 +85,7 @@ const [storedAnswers, setStoredAnswers]=useState(null)
         },
         {
             id: 3,
-            title: "Joey doesnt share what2?",
+            title: "Joey doesnt share what3?",
             answerOptions: [
                 {
                     answerText: "clothes3",
