@@ -5,7 +5,7 @@ import './Content.scss';
 
 export default function Content({data, index, toggleAnswerId,correct,selected}) { 
 
-
+  // console.log(correct);
   return (
     <div className="content">
       {data.questions.map(el=>{
@@ -20,10 +20,10 @@ export default function Content({data, index, toggleAnswerId,correct,selected}) 
                   if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) !== -1){
                     
                       return  <AnswerButton key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--selected-correct"}/>
-                  }else if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) == -1){
+                  }else if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) === -1){
              
                       return  <AnswerButton  key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--selected-incorrect"}/>
-                  }else if(selected.indexOf(el.answerId) == -1 && correct.indexOf(el.answerId) == -1){
+                  }else if(selected.indexOf(el.answerId) === -1 && correct.indexOf(el.answerId) === -1){
                 
                     return  <AnswerButton  key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--notselected-incorrect"}/>           
                   }else{
