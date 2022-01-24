@@ -43,10 +43,16 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   function handleNext(){
     setIndex(index+1)
     setToggleCtrlBtn(!toggleCtrlBtn)
-    setIsNext(!isNext)
     setSelected([]);
     setCorrect([])
-    // setIsPrev(false)
+    setIsPrev(false)
+    setIsNext(true)
+  }
+
+  function handlePrevious(){
+    setIndex(index-1)
+    setIsPrev(true)
+    setIsNext(false)
   }
 
   function getCorrectAnswer() {
@@ -78,19 +84,22 @@ export default function ControlButtons({points, index, setPoints, selected, setS
 
   useEffect(() => {
     if(isPrev) {
+      console.log(storedAnswers[index-1].selectedAnswers);
       setSelected(storedAnswers[index-1].selectedAnswers)
       setCorrect(storedAnswers[index-1].correctAnswers) 
     }
-    else if(isNext && storedAnswers[index].selectedAnswers) {
-      setSelected(storedAnswers[index].selectedAnswers)
-      setCorrect(storedAnswers[index].correctAnswers) 
-    } 
-  },[isPrev,isNext])
+    
+  },[isPrev])
 
-  function handlePrevious(){
-    setIndex(index-1)
-    setIsPrev(!isPrev)
-  }
+  // useEffect(() => {
+  //   if(!isNext && storedAnswers) { 
+  //     console.log(index, storedAnswers, isNext);
+  //     setSelected(storedAnswers[index-1].selectedAnswers)
+  //     setCorrect(storedAnswers[index-1].correctAnswers) 
+  //   }    
+  // },[isNext])
+
+  
   
   
   
