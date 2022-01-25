@@ -5,7 +5,33 @@ import './Content.scss';
 
 export default function Content({data, index, toggleAnswerId,correct,selected}) { 
 
-  // console.log(correct);
+  const buttonState = {
+    selectedCorrect: "content__answer--selected-correct",
+    selectedIncorrect: "content__answer--selected-incorrect",
+    notSelectedCorrect: "content__answer--notselected-correct",
+    notSelectedIncorrect: "content__answer--notselected-incorrect"
+  }
+
+  function setButtonState(el) {
+    if(correct.length) {
+      if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) !== -1){
+                 return buttonState.selectedCorrect;
+      }
+        else if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) === -1) {
+          return buttonState.selectedIncorrect;
+        }
+        else if(selected.indexOf(el.answerId) === -1 && correct.indexOf(el.answerId) === -1) {
+          return buttonState.notSelectedIncorrect;
+        }
+        else {
+          return buttonState.notSelectedCorrect;
+        }
+      }
+      else {
+        return ""
+      }
+  }
+
   return (
     <div className="content">
       {data.questions.map(el=>{
@@ -14,25 +40,7 @@ export default function Content({data, index, toggleAnswerId,correct,selected}) 
             <div key={el.id} >
               <div className="content__title">{el.title}</div>
               {el.answerOptions.map((el, index) => {
-          
-                if(correct.length){
-                   
-                  if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) !== -1){
-                    
-                      return  <AnswerButton key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--selected-correct"}/>
-                  }else if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) === -1){
-             
-                      return  <AnswerButton  key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--selected-incorrect"}/>
-                  }else if(selected.indexOf(el.answerId) === -1 && correct.indexOf(el.answerId) === -1){
-                
-                    return  <AnswerButton  key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--notselected-incorrect"}/>           
-                  }else{
-                
-                    return  <AnswerButton  key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={"content__answer--notselected-correct"}/>
-                  }
-                }else{
-                  return  <AnswerButton  key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={""}/>
-                }
+                return <AnswerButton key={index} i={index} text={el.answerText} id={el.answerId} toggleAnswerId={toggleAnswerId} stateClass={setButtonState(el)}/>
               })
               }
             </div>
