@@ -12,9 +12,14 @@ const [index, setIndex] = useState(1)
 const [selected, setSelected] = useState([])
 const [correct, setCorrect] = useState([])
 const [storedAnswers, setStoredAnswers]=useState(null)
+const [data,setData] = useState(null)
 
 
-
+    async function fetchData(){
+        const response = await fetch("http://localhost:3000/questions")
+        const newData = await response.json()
+        setData(newData)
+    }
 
     const toggleAnswerId = (answerId) => {
         if(selected.indexOf(answerId) === -1){
@@ -32,81 +37,16 @@ const [storedAnswers, setStoredAnswers]=useState(null)
     }
 
     useEffect(()=>{
-        setStoredAnswers(data.questions)
+        if(data){
+            setStoredAnswers(data)
+        }
+      
+    },[data])
+
+    useEffect(()=>{
+        fetchData()
     },[])
 
-
-    const data = {
-        questions: [
-        {
-            id: 1,
-            title: "Joey doesnt share what?",
-            answerOptions: [
-                {
-                    answerText: "clothes",
-                    answerId: 1
-                },
-                {
-                    answerText: "food",
-                    answerId:2
-                },
-                {
-                    answerText: "advice",
-                    answerId: 3
-                },
-                {
-                    answerText: "hugs",
-                    answerId: 4
-                }
-            ]
-
-        },
-        {
-            id: 2,
-            title: "Joey doesnt share what2?",
-            answerOptions: [
-                {
-                    answerText: "clothes2",
-                    answerId: 1
-                },
-                {
-                    answerText: "food2",
-                    answerId:2
-                },
-                {
-                    answerText: "advice2",
-                    answerId: 3
-                },
-                {
-                    answerText: "hugs2",
-                    answerId: 4
-                }
-            ]
-        },
-        {
-            id: 3,
-            title: "Joey doesnt share what3?",
-            answerOptions: [
-                {
-                    answerText: "clothes3",
-                    answerId: 1
-                },
-                {
-                    answerText: "food3",
-                    answerId:2
-                },
-                {
-                    answerText: "advice3",
-                    answerId: 3
-                },
-                {
-                    answerText: "hugs3",
-                    answerId: 4
-                }
-            ]
-        }
-        ]
-    }
 
 
     return (
@@ -116,7 +56,7 @@ const [storedAnswers, setStoredAnswers]=useState(null)
             <ControlButtons points={points} index={index} 
             setPoints={setPoints} selected={selected} 
             setSelected={setSelected} setIndex={setIndex} 
-            data={data.questions} setCorrect={setCorrect} 
+            data={data} setCorrect={setCorrect} 
             correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}/>
         </div>
     )

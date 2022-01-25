@@ -9,36 +9,21 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   const[isNext, setIsNext] = useState(false)
   const[isNextAfterPrev, setNextAfterPrev] = useState(false)
   const[isSubmit, setIsSubmit] = useState(false)
-  
-  const correctData = {
-    correctAnswers: [
-      {
-        id: 1,
-        correct: [
-          2
-        ]
-      },
-      {
-        id: 2,
-        correct: [
-          2,
-          3
-        ]
-      },
-      {
-        id: 3,
-        correct: [
-          1,
-          4
-        ]
-      }
-    ]
-  } 
 
+
+
+  async function fetchCorrectAnswers(){
+    const response = await fetch(`http://localhost:3010/correctAnswers/${index}`)
+    const correctData  = await response.json()
+    // console.log(correctData);
+    // getCorrectAnswer(correctData)
+    setCorrect(correctData.correct)
+  
+  }
   
   function handleSubmit(){
     setToggleCtrlBtn(!toggleCtrlBtn)
-    getCorrectAnswer();
+    // getCorrectAnswer();
     setIsSubmit(true);
     // handlePoints()
   }
@@ -62,20 +47,32 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     setToggleCtrlBtn(!toggleCtrlBtn)
   }
 
-  function getCorrectAnswer() {
-   correctData.correctAnswers.filter(el => {
-      if(index === el.id) { 
-        setCorrect(el.correct);
-      }      
-    })
-  }
+  // function getCorrectAnswer(correctA) {
+  
+  //     correctArr && correctArr.filter(el => {
+  //       if(index === el.id) { 
+  //         setCorrect(el.correct);
+  //       }      
+  //     })
+    
+  
+  // }
   
   useEffect(() => {
-    if(correct.length > 0){
-      handlePoints()
-      storeAnswers()
-    }; 
+  
+    if(isSubmit){
+      fetchCorrectAnswers() 
+    }
+ 
   }, [isSubmit])
+
+  useEffect(()=>{
+    if(correct.length>0 && isSubmit && !isPrev){
+      storeAnswers()
+      handlePoints()
+    }
+
+  },[correct])
 
   function handlePoints(){
     if(selected.sort().toString() === correct.toString()){
@@ -84,12 +81,15 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   }
 
   function storeAnswers(){
+    console.log(storedAnswers,correct);
     storedAnswers[index-1].selectedAnswers=selected
     storedAnswers[index-1].correctAnswers=correct
     setStoredAnswers(storedAnswers)
   }
 
   useEffect(() => {
+   
+   
     if(isPrev) {
       setSelected(storedAnswers[index-1].selectedAnswers)
       setCorrect(storedAnswers[index-1].correctAnswers) 
@@ -106,7 +106,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   },[isNext])
 
   
-  // console.log(storedAnswers);
+  console.log(storedAnswers);
   
   
   return (
