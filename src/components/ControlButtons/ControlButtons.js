@@ -8,6 +8,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
   const[isNext, setIsNext] = useState(false)
   const[isNextAfterPrev, setNextAfterPrev] = useState(false)
+  const[isSubmit, setIsSubmit] = useState(false)
   
   const correctData = {
     correctAnswers: [
@@ -37,14 +38,17 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   
   function handleSubmit(){
     setToggleCtrlBtn(!toggleCtrlBtn)
-    getCorrectAnswer(); 
+    getCorrectAnswer();
+    setIsSubmit(true);
+    // handlePoints()
   }
   
   function handleNext(){
     setIndex(index+1)
     setToggleCtrlBtn(!toggleCtrlBtn)
-    setIsPrev(false)
+    setIsPrev(false); 
     setIsNext(true)
+    setIsSubmit(false);
     setSelected([]);
     setCorrect([]) 
   }
@@ -54,6 +58,8 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     setIsNext(false)
     setNextAfterPrev(true)
     setIsPrev(true)
+    // setIsSubmit(false)
+    setToggleCtrlBtn(!toggleCtrlBtn)
   }
 
   function getCorrectAnswer() {
@@ -69,7 +75,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
       handlePoints()
       storeAnswers()
     }; 
-  }, [correct])
+  }, [isSubmit])
 
   function handlePoints(){
     if(selected.sort().toString() === correct.toString()){
@@ -100,13 +106,13 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   },[isNext])
 
   
-  
+  // console.log(storedAnswers);
   
   
   return (
     <div className="quiz__buttons">
 
-      <div>{index>1 ? <button className={`quiz__button ${isPrev ? 'quiz__button--disabled' : ''}`} onClick={handlePrevious}>Previous</button> : ''}</div>
+      <div>{index>1 ? <button className={`quiz__button ${isPrev || !isSubmit ? 'quiz__button--disabled' : ''}`} onClick={handlePrevious}>Previous</button> : ''}</div>
       <div>{!toggleCtrlBtn && !isPrev ? 
         <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
         index !== data.length ?
