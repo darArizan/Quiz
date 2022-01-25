@@ -34,7 +34,7 @@ export default function Content({data, index, toggleAnswerId,correct,selected}) 
 
   return (
     <div className="content">
-      {data.questions.map(el=>{
+      {data && data.map(el=>{
         if(index === el.id){
           return(
             <div key={el.id} >
