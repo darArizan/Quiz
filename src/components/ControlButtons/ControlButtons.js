@@ -2,13 +2,13 @@ import React,{useState, useEffect} from 'react';
 import './ControlButtons.scss';
  
 
-export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct, setCorrect,setStoredAnswers,storedAnswers}) {
+export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct, isSubmit, setIsSubmit, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers}) {
 
   const[isPrev, setIsPrev] = useState(false);
   const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
   const[isNext, setIsNext] = useState(false)
-  const[isNextAfterPrev, setNextAfterPrev] = useState(false)
-  const[isSubmit, setIsSubmit] = useState(false)
+  // const[isNextAfterPrev, setNextAfterPrev] = useState(false)
+  // const[isSubmit, setIsSubmit] = useState(false)
   const[disabled,setDisabled] = useState(false)
 
   async function fetchCorrectAnswers(){
