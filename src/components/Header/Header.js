@@ -6,6 +6,7 @@ export default function Header({points}) {
   return (
     <div>
       {points}
+      <button onClick={() => window.location.reload(false)}>Reset</button>
     </div>
   )
 }

@@ -13,6 +13,9 @@ const [selected, setSelected] = useState([])
 const [correct, setCorrect] = useState([])
 const [storedAnswers, setStoredAnswers]=useState(null)
 const [data,setData] = useState(null)
+const[isSubmit, setIsSubmit] = useState(false)
+const[isNextAfterPrev, setNextAfterPrev] = useState(false)
+
 
 
     async function fetchData(){
@@ -52,11 +55,16 @@ const [data,setData] = useState(null)
     return (
         <div className="quiz">
             <Header points={points}/>
-            <Content data={data} index={index} toggleAnswerId={toggleAnswerId} selected={selected} correct={correct}/>
+            <Content data={data} index={index} toggleAnswerId={toggleAnswerId}
+            isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
+            storedAnswers={storedAnswers} 
+             selected={selected} correct={correct} isSubmit={isSubmit} setIsSubmit={setIsSubmit}/>
             <ControlButtons points={points} index={index} 
             setPoints={setPoints} selected={selected} 
             setSelected={setSelected} setIndex={setIndex} 
             data={data} setCorrect={setCorrect} 
+            isSubmit={isSubmit} setIsSubmit={setIsSubmit}
+            isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
             correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}/>
         </div>
     )
