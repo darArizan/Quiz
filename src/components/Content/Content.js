@@ -15,7 +15,7 @@ export default function Content({data, index, toggleAnswerId, correct, selected,
   function setButtonState(el) {
     if(correct.length) {
       if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) !== -1){
-                 return buttonState.selectedCorrect;
+        return buttonState.selectedCorrect;
       }
         else if(selected.indexOf(el.answerId) !== -1 && correct.indexOf(el.answerId) === -1) {
           return buttonState.selectedIncorrect;
