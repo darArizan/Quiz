@@ -3,7 +3,7 @@ import AnswerButton from '../AnswerButton/AnswerButton';
 import './Content.scss';
 
 
-export default function Content({data, index, toggleAnswerId, correct, selected, storedAnswers, isNextAfterPrev, setNextAfterPrev, isSubmit, setIsSubmit}) { 
+export default function Content({data, index, toggleAnswerId, correct, selected, storedAnswers, startModal, isNextAfterPrev, setNextAfterPrev, isSubmit, setIsSubmit}) { 
 
   const buttonState = {
     selectedCorrect: "content__answer--selected-correct",
@@ -42,7 +42,7 @@ export default function Content({data, index, toggleAnswerId, correct, selected,
               {el.answerOptions.map((el, i) => {
                 return <AnswerButton key={i} i={i} index={index} text={el.answerText} id={el.answerId} 
                 isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
-                storedAnswers={storedAnswers} 
+                storedAnswers={storedAnswers} startModal={startModal} 
                 toggleAnswerId={toggleAnswerId} stateClass={setButtonState(el)} isSubmit={isSubmit} setIsSubmit={setIsSubmit}/>
               })
               }

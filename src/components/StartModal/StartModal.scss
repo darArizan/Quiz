@@ -1,0 +1,25 @@
+.modal {
+    background-color: rgba(115, 98, 162, 0.9);
+    width: 800px;
+    height: 800px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 15;
+    &__button {
+        line-height: 40px;
+        background-color: beige;
+        border: 1px solid rgb(87, 82, 82);
+        padding: 5px 30px;
+        margin:20px;
+        border-radius: 100px;
+        position: absolute;
+        top:40%;   
+        left:30%; 
+        transform: translate(50%);
+        cursor: pointer;
+    }
+    &--active {
+        display: none;
+    }
+}

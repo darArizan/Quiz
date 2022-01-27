@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './AnswerButton.scss';
 
-const AnswerButton = ({text, i, index, id, toggleAnswerId,stateClass, isNextAfterPrev, setNextAfterPrev, storedAnswers, isSubmit, setIsSubmit}) => { 
+const AnswerButton = ({text, i, index, id, toggleAnswerId,stateClass, startModal, storedAnswers, isSubmit, setIsSubmit}) => { 
 
   const[clicked, setClicked] = useState(false)
   const[disabled, setDisabled] = useState(false)
@@ -28,7 +28,7 @@ const AnswerButton = ({text, i, index, id, toggleAnswerId,stateClass, isNextAfte
 
   return(
     <button onClick={handleAnswer} disabled={disabled} className={!clicked? `content__answer ${stateClass}`: `content__answer content__answer--selected ${stateClass}`}>
-      {abc[i]}: {text}
+      { startModal ?  `${abc[i]}: ${text}` : ""}
     </button>
   )
 };
