@@ -14,10 +14,14 @@ const [selected, setSelected] = useState([])
 const [correct, setCorrect] = useState([])
 const [storedAnswers, setStoredAnswers]=useState(null)
 const [data,setData] = useState(null)
-const[isSubmit, setIsSubmit] = useState(false)
-const[isNextAfterPrev, setNextAfterPrev] = useState(false)
+const [isSubmit, setIsSubmit] = useState(false)
+const [isNextAfterPrev, setNextAfterPrev] = useState(false)
 const [startModal, setStartModal] = useState(false)
+const [isPrev, setIsPrev] = useState(false);
+const [isNext, setIsNext] = useState(false)
+const [toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
 
+// console.log(points, correct, selected, index, startModal, storedAnswers, data, isPrev, isNext, isSubmit, isNextAfterPrev, toggleCtrlBtn);
 
 
     async function fetchData(){
@@ -61,6 +65,8 @@ const [startModal, setStartModal] = useState(false)
             <StartModal startModal={startModal} setStartModal={setStartModal}/>
             <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
+            setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
+            setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
             setStoredAnswers={setStoredAnswers} setPoints={setPoints}/>
             <Content data={data} index={index} toggleAnswerId={toggleAnswerId}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
@@ -70,7 +76,9 @@ const [startModal, setStartModal] = useState(false)
             setPoints={setPoints} selected={selected} 
             setSelected={setSelected} setIndex={setIndex} 
             data={data} setCorrect={setCorrect} 
-            isSubmit={isSubmit} setIsSubmit={setIsSubmit}
+            toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn}
+            setIsNext={setIsNext} isPrev={isPrev} setIsPrev={setIsPrev}
+            isSubmit={isSubmit} setIsSubmit={setIsSubmit} isNext={isNext}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
             correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}/>
         </div>
