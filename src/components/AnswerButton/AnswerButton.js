@@ -14,20 +14,17 @@ const AnswerButton = ({text, i, index, id, toggleAnswerId,stateClass, isNextAfte
     setClicked(!clicked)
   }
 
-  // useEffect(() => {
-  //   console.log(storedAnswers);
-  //   if(isSubmit) {
-  //     if(storedAnswers[index-1].correctAnswers) {
-  //       setDisabled(true)
-  //     }
-  //     else {
-  //       setDisabled(false)
-  //     }
-  //   }
+  useEffect(() => {
+    if(storedAnswers) {
+      if(storedAnswers[index-1].correctAnswers || isSubmit) {
+        setDisabled(true)
+      } else {
+        setDisabled(false)
+      }
+    }
     
-  // },[isSubmit,index])
-
-  console.log(isSubmit, isNextAfterPrev);
+  },[storedAnswers, isSubmit])
+ 
 
   return(
     <button onClick={handleAnswer} disabled={disabled} className={!clicked? `content__answer ${stateClass}`: `content__answer content__answer--selected ${stateClass}`}>
