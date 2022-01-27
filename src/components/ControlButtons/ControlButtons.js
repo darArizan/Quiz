@@ -86,6 +86,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     }    
   },[isNext])
 
+  if(data) {
   return (
     <div className="quiz__buttons">
       <div>{index>1 ? <button  disabled={disabled} className="quiz__button"   onClick={handlePrevious}>Previous</button> : ''}</div>
@@ -97,6 +98,10 @@ export default function ControlButtons({points, index, setPoints, selected, setS
       }</div>
     </div>
   )
+}
+else {
+  return <div>Loading...</div>
+}
 }
 
 
