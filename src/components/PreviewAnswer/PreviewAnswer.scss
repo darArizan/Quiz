@@ -1,0 +1,49 @@
+.preview__answer{
+
+    line-height: 40px;
+    background-color: beige;
+    border: 1px solid rgb(87, 82, 82);
+    padding: 5px 30px;
+    margin:20px;
+    position: relative;
+    margin-bottom: 20px;
+
+    &--selected-incorrect{
+        border-color: chartreuse;
+        background-color: red;
+    }
+
+    &--selected{    
+        background-color: rgb(178, 192, 164);
+        border-color: chartreuse;
+    }
+    &--selected-correct{    
+        background-color: chartreuse;
+        border-color: darkgreen;
+    }
+
+    &--selected-incorrect{
+        border-color: chartreuse;
+        background-color: red;
+    }
+ 
+    &--notselected-correct{
+        background-color: chartreuse;
+        border-color: red;
+    }
+    &--notselected-incorrect{
+        background-color: beige;
+        border-color: red;
+    }
+    &:before{
+        position: absolute;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        top: -4px;
+        left: -4px;
+        z-index: -1; 
+        content:"";
+        background: linear-gradient(yellow, cadetblue);
+
+    }
+}

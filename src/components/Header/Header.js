@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
-export default function Header({points, setIndex, setData, setNextAfterPrev, setStartModal, setToggleCtrlBtn, setSelected, setCorrect, setStoredAnswers, setPoints, setIsNext, setIsPrev, setIsSubmit}) {
+export default function Header({points, setIndex, setData, setNextAfterPrev, setStartModal, setToggleCtrlBtn, setSelected, setCorrect, setStoredAnswers, setPoints, setIsNext, setIsPrev, setIsSubmit, isPreview, setIsPreview}) {
   // console.log(points);
 
   function handleReset() {
@@ -17,14 +17,22 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
     setIsSubmit(false);
     setNextAfterPrev(false);
     setToggleCtrlBtn(false);
+    setIsPreview(false)
   }
 
 
   return (
-    <div>
-      {points}
-      <button onClick={handleReset}>Reset</button>
-    </div>
+    <>
+    {!isPreview ?
+        <div>
+          {points}
+          <button onClick={handleReset}>Reset</button>
+        </div> :
+        <div>
+          <button onClick={handleReset}>Reset</button>    
+        </div>
+    }
+    </>
   )
 }
 

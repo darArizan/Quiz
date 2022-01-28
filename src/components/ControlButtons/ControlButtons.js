@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import './ControlButtons.scss';
  
 
-export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers}) {
+export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview}) {
 
   // const[isPrev, setIsPrev] = useState(false);
   // const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
@@ -96,7 +96,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
         <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
         index !== data.length ?
           <button onClick={handleNext} className="quiz__button">Next</button> :
-          <button className="quiz__button">Preview</button>
+          <button className="quiz__button" onClick={()=>setIsPreview(true)}>Preview</button>
       }</div>
     </div>
   )
