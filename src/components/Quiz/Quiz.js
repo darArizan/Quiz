@@ -4,6 +4,7 @@ import  Header from '../Header/Header'
 import Content from '../Content/Content'
 import ControlButtons from '../ControlButtons/ControlButtons'
 import StartModal from '../StartModal/StartModal';
+import Preview from '../Preview/Preview';
 
 
 export default function Quiz() {
@@ -20,6 +21,7 @@ const [startModal, setStartModal] = useState(false)
 const [isPrev, setIsPrev] = useState(false);
 const [isNext, setIsNext] = useState(false)
 const [toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
+const [isPreview, setIsPreview] = useState(false)
 
 // console.log(points, correct, selected, index, startModal, storedAnswers, data, isPrev, isNext, isSubmit, isNextAfterPrev, toggleCtrlBtn);
 
@@ -61,13 +63,15 @@ const [toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
 
 
     return (
+        <>
+        {!isPreview ?
         <div className="quiz">
             <StartModal startModal={startModal} setStartModal={setStartModal}/>
             <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
             setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
             setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
-            setStoredAnswers={setStoredAnswers} setPoints={setPoints}/>
+            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}/>
             <Content data={data} index={index} toggleAnswerId={toggleAnswerId}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
             storedAnswers={storedAnswers} startModal={startModal} 
@@ -78,10 +82,21 @@ const [toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
             data={data} setCorrect={setCorrect} 
             toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn}
             setIsNext={setIsNext} isPrev={isPrev} setIsPrev={setIsPrev}
-            isSubmit={isSubmit} setIsSubmit={setIsSubmit} isNext={isNext}
+            isSubmit={isSubmit} setIsSubmit={setIsSubmit} isNext={isNext} setIsPreview={setIsPreview}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
             correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}/>
         </div>
+            : 
+            <>
+            <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
+            setIndex={setIndex} setStartModal={setStartModal} setData={setData}
+            setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
+            setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
+            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}/> 
+           <Preview storedAnswers={storedAnswers} points={points} isPreview={isPreview} />
+           </>
+        }
+        </>
     )
 }
 
