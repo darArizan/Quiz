@@ -2,14 +2,14 @@ import React,{useState, useEffect} from 'react';
 import './ControlButtons.scss';
  
 
-export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview}) {
+export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview, disabled, setDisabled, setTimer, time, setTime}) {
 
   // const[isPrev, setIsPrev] = useState(false);
   // const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
   // const[isNext, setIsNext] = useState(false)
   // const[isNextAfterPrev, setNextAfterPrev] = useState(false)
   // const[isSubmit, setIsSubmit] = useState(false)
-  const[disabled,setDisabled] = useState(false)
+  // const[disabled,setDisabled] = useState(false)
 
   async function fetchCorrectAnswers(){
     const response = await fetch(`http://localhost:3010/correctAnswers/${index}`)
@@ -83,7 +83,12 @@ export default function ControlButtons({points, index, setPoints, selected, setS
     if(isNext && isNextAfterPrev) {
       setSelected(storedAnswers[index-1].selectedAnswers)
       setCorrect(storedAnswers[index-1].correctAnswers) 
-    }    
+    } else{
+      if(!isPrev){
+        setTimer(true)
+        setTime(5)
+      }
+    }  
   },[isNext])
 
   console.log(toggleCtrlBtn, isPrev);

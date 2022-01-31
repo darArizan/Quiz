@@ -1,0 +1,73 @@
+// VARIABLES
+$el-measure: 150px;
+$time: 15s;
+$circ-diameter: 68px;
+$primary-color: #9260e2;
+$secondary-color: #3c108f;
+$ternary-color: #fffc3acc;
+$circumference: 2 * 3.14 * $circ-diameter;
+$font: main-font, Trebuchet MS, tahoma, san-serif;
+
+// GLOBAL ENVIRONMENT
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: $primary-color;
+  display: grid;
+  place-content: center;
+}
+ 
+ 
+.timer {
+  position: relative;
+  width: $el-measure;
+  height: auto; 
+ 
+  &__caption { 
+    position: absolute;
+    text-align: center;
+    font-family: $font;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #fff;
+    top: 48%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  &__line {
+    stroke: $ternary-color;
+    stroke-width: 3px;
+    fill: transparent;
+  }
+  
+  &__counter {
+    stroke: $secondary-color;
+    stroke-width: 12px;
+    stroke-dasharray: $circumference 0;
+    fill: transparent;
+    transform: rotateZ(-90deg) rotateX(180deg);
+    transform-origin: center;
+    &--animate{
+        animation: timer 5s infinite linear;
+    }
+  }
+}
+
+// TIMER ANIMATION
+@keyframes timer {
+  100% { 
+    stroke-dasharray: 0 $circumference;
+  }
+}
