@@ -21,7 +21,10 @@ const [startModal, setStartModal] = useState(false)
 const [isPrev, setIsPrev] = useState(false);
 const [isNext, setIsNext] = useState(false)
 const [toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
-const [isPreview, setIsPreview] = useState(false)
+const [isPreview, setIsPreview] = useState(false);
+const [timer, setTimer] = useState(false);
+const [time, setTime] = useState(5);
+const [disabled,setDisabled] = useState(false);
 
 // console.log(points, correct, selected, index, startModal, storedAnswers, data, isPrev, isNext, isSubmit, isNextAfterPrev, toggleCtrlBtn);
 
@@ -66,12 +69,14 @@ const [isPreview, setIsPreview] = useState(false)
         <>
         {!isPreview ?
         <div className="quiz">
-            <StartModal startModal={startModal} setStartModal={setStartModal}/>
+            <StartModal startModal={startModal} setStartModal={setStartModal} timer={timer} setTimer={setTimer}/>
             <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
-            setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
+            toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
             setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
-            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}/>
+            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
+            timer={timer} setTimer={setTimer} time={time} setTime={setTime}
+            setDisabled={setDisabled} />
             <Content data={data} index={index} toggleAnswerId={toggleAnswerId}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
             storedAnswers={storedAnswers} startModal={startModal} 
@@ -84,7 +89,9 @@ const [isPreview, setIsPreview] = useState(false)
             setIsNext={setIsNext} isPrev={isPrev} setIsPrev={setIsPrev}
             isSubmit={isSubmit} setIsSubmit={setIsSubmit} isNext={isNext} setIsPreview={setIsPreview}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
-            correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}/>
+            correct={correct} setStoredAnswers={setStoredAnswers}storedAnswers={storedAnswers}
+            timer={timer} setTimer={setTimer} time={time} setTime={setTime}
+            disabled={disabled} setDisabled={setDisabled}/>
         </div>
             : 
             <>
@@ -92,7 +99,8 @@ const [isPreview, setIsPreview] = useState(false)
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
             setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
             setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
-            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}/> 
+            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
+            /> 
            <Preview storedAnswers={storedAnswers} points={points} isPreview={isPreview} />
            </>
         }

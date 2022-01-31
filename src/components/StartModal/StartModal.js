@@ -1,9 +1,10 @@
 import React from 'react'
 import './StartModal.scss'
-function StartModal({startModal, setStartModal}) {
+function StartModal({startModal, setStartModal, timer, setTimer}) {
 
     function handleStartModal() {
         setStartModal(true)
+        setTimer(true);
     }
 
     return (
