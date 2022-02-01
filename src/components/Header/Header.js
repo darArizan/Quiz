@@ -25,7 +25,7 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
   return (
     <>
     {!isPreview ?
-        <div>
+        <div className="header">
           {points}
           <button onClick={handleReset}>Reset</button>
           <Timer time={time} setTime={setTime} timer={timer} setTimer={setTimer} setIsSubmit={setIsSubmit} setDisabled={setDisabled} toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} isSubmit={isSubmit}/>
