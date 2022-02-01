@@ -61,7 +61,14 @@ body {
     transform-origin: center;
     &--animate{
         animation: timer 5s infinite linear;
+        &-paused{
+          animation: timer 5s infinite linear;
+          animation-play-state: paused;
+          
+      }
+
     }
+    
   }
 }
 
