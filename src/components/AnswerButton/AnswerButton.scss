@@ -1,7 +1,9 @@
+@import '../../scss/color';
+
 .content__answer{
 
     line-height: 40px;
-    background-color: beige;
+    background-color: $default;
     border: 1px solid rgb(87, 82, 82);
     padding: 5px 30px;
     margin:20px;
@@ -9,31 +11,25 @@
     position: relative;
 
     &--selected-incorrect{
-        border-color: chartreuse;
-        background-color: red;
+        border-color: $selectedBorder;
+        background-color: $selectedIncorrect;
     }
 
     &--selected{    
-        background-color: rgb(178, 192, 164);
-        border-color: chartreuse;
+        background-color: $hoverSelect;
+        border-color: $selectedBorder;
     }
     &--selected-correct{    
-        background-color: chartreuse;
-        border-color: darkgreen;
-    }
-
-    &--selected-incorrect{
-        border-color: chartreuse;
-        background-color: red;
+        background-color: $selectedCorrect;
+        border-color: $selectedBorder;
     }
  
     &--notselected-correct{
-        background-color: chartreuse;
-        border-color: red;
+        background-color: $selectedCorrect;
+     
     }
     &--notselected-incorrect{
-        background-color: beige;
-        border-color: red;
+        background-color: $selectedIncorrect;
     }
     &:before{
         position: absolute;
@@ -45,5 +41,8 @@
         content:"";
         background: linear-gradient(yellow, cadetblue);
         border-radius: 100px;
+    }
+    &:hover {
+        background-color: $hoverSelect;
     }
 }

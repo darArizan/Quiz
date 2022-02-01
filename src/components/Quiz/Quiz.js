@@ -5,7 +5,7 @@ import Content from '../Content/Content'
 import ControlButtons from '../ControlButtons/ControlButtons'
 import StartModal from '../StartModal/StartModal';
 import Preview from '../Preview/Preview';
-
+// import '../../scss/main.scss';
 
 export default function Quiz() {
 
