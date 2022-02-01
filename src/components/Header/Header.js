@@ -2,7 +2,7 @@ import React from 'react';
 import Timer from '../Timer/Timer';
 import './Header.scss';
 
-export default function Header({points, setIndex, setData, setNextAfterPrev, setStartModal, setSelected, setCorrect, setStoredAnswers, setPoints, setIsNext, setIsPrev, setIsSubmit, isPreview, setIsPreview, timer, setTimer, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime}) {
+export default function Header({points, setIndex, setData, setNextAfterPrev, setStartModal, setSelected, setCorrect, setStoredAnswers, setPoints, setIsNext, setIsPrev, isSubmit, setIsSubmit, isPreview, setIsPreview, timer, setTimer, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime}) {
   // console.log(points);
 
   function handleReset() {
@@ -28,7 +28,7 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
         <div>
           {points}
           <button onClick={handleReset}>Reset</button>
-          <Timer time={time} setTime={setTime} timer={timer} setTimer={setTimer} setIsSubmit={setIsSubmit} setDisabled={setDisabled} toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn}/>
+          <Timer time={time} setTime={setTime} timer={timer} setTimer={setTimer} setIsSubmit={setIsSubmit} setDisabled={setDisabled} toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} isSubmit={isSubmit}/>
         </div> :
         <div>
           <button onClick={handleReset}>Reset</button>    
