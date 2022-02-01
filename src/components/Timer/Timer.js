@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Timer.scss";
 
-function Timer({timer, setTimer, setIsSubmit, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime}) {
+function Timer({timer, setTimer, isSubmit, setIsSubmit, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime}) {
 
-
+let countDown;
 
 useEffect(() => {
 
-let countDown;
 
 if(timer){
     countDown = setInterval(() =>{
@@ -19,20 +18,31 @@ if(timer){
                 return 0
             }
         })
-        console.log(time);
+ 
     }, 1000)
 }
 },[timer])
 
 
-useEffect(() => { 
+useEffect(() => {
    if(time === 0){
-    setTimer(false)
-    setIsSubmit(true)
-    setToggleCtrlBtn(!toggleCtrlBtn)
-    setDisabled(false)
+        setTimer(false)
+        setIsSubmit(true)
+        setToggleCtrlBtn(!toggleCtrlBtn)
+        setDisabled(false)
+   }else{
+    console.log(timer);
+    if(isSubmit){
+        clearInterval(countDown);
+        setTimer(false)
+        setTime(0)
+        setIsSubmit(true)
+        setToggleCtrlBtn(!toggleCtrlBtn)
+        setDisabled(false)
+    }
    }
 }, [time])
+
 
 
   return (

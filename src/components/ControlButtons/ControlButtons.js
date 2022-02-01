@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import './ControlButtons.scss';
  
 
-export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview, disabled, setDisabled, setTimer, time, setTime}) {
+export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview, disabled, setDisabled, timer, setTimer, time, setTime}) {
 
   // const[isPrev, setIsPrev] = useState(false);
   // const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
@@ -76,22 +76,22 @@ export default function ControlButtons({points, index, setPoints, selected, setS
       setSelected(storedAnswers[index-1].selectedAnswers)
       setCorrect(storedAnswers[index-1].correctAnswers) 
     }
-    
   },[isPrev])
 
   useEffect(() => {
     if(isNext && isNextAfterPrev) {
       setSelected(storedAnswers[index-1].selectedAnswers)
-      setCorrect(storedAnswers[index-1].correctAnswers) 
-    } else{
-      if(!isPrev){
-        setTimer(true)
-        setTime(5)
-      }
-    }  
+      setCorrect(storedAnswers[index-1].correctAnswers)
+    }    
   },[isNext])
 
-  console.log(toggleCtrlBtn, isPrev);
+  useEffect(() => {
+    if(isNext && !toggleCtrlBtn && !isPrev) {
+        setTimer(true)
+        setTime(5)
+    }  
+  },[toggleCtrlBtn])
+
 
   if(data) {
   return (

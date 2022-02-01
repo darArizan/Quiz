@@ -73,7 +73,7 @@ const [disabled,setDisabled] = useState(false);
             <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
             toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
-            setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
+            setIsNext={setIsNext} setIsPrev={setIsPrev} isSubmit={isSubmit} setIsSubmit={setIsSubmit}
             setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
             timer={timer} setTimer={setTimer} time={time} setTime={setTime}
             setDisabled={setDisabled} />
