@@ -1,5 +1,5 @@
 // VARIABLES
-$el-measure: 150px;
+$el-measure: 90px;
 $time: 15s;
 $circ-diameter: 68px;
 $primary-color: #9260e2;
@@ -16,15 +16,6 @@ $font: main-font, Trebuchet MS, tahoma, san-serif;
   box-sizing: border-box;
 }
 
-body {
-  width: 100%;
-  height: 100vh;
-  // background-color: $primary-color;
-//   display: grid;
-//   place-content: center;
-}
- 
- 
 .timer {
   position: relative;
   width: $el-measure;
