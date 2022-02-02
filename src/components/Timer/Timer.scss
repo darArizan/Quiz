@@ -2,19 +2,12 @@
 $el-measure: 90px;
 $time: 15s;
 $circ-diameter: 68px;
-$primary-color: #9260e2;
-$secondary-color: #3c108f;
-$ternary-color: #fffc3acc;
 $circumference: 2 * 3.14 * $circ-diameter;
 $font: main-font, Trebuchet MS, tahoma, san-serif;
 
 // GLOBAL ENVIRONMENT
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 .timer {
   position: relative;
