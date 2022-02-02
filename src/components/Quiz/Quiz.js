@@ -1,11 +1,9 @@
 import React,{useState,useEffect} from 'react';
-import './Quiz.scss';
 import  Header from '../Header/Header'
 import Content from '../Content/Content'
 import ControlButtons from '../ControlButtons/ControlButtons'
 import StartModal from '../StartModal/StartModal';
 import Preview from '../Preview/Preview';
-// import '../../scss/main.scss';
 
 export default function Quiz() {
 
@@ -25,6 +23,7 @@ const [isPreview, setIsPreview] = useState(false);
 const [timer, setTimer] = useState(false);
 const [time, setTime] = useState(5);
 const [disabled,setDisabled] = useState(false);
+const [countDown,setCountDown] = useState(null)
 
 // console.log(points, correct, selected, index, startModal, storedAnswers, data, isPrev, isNext, isSubmit, isNextAfterPrev, toggleCtrlBtn);
 
@@ -76,7 +75,7 @@ const [disabled,setDisabled] = useState(false);
             setIsNext={setIsNext} setIsPrev={setIsPrev} isSubmit={isSubmit} setIsSubmit={setIsSubmit}
             setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
             timer={timer} setTimer={setTimer} time={time} setTime={setTime}
-            setDisabled={setDisabled} />
+            setDisabled={setDisabled} countDown={countDown} setCountDown={setCountDown} />
             <Content data={data} index={index} toggleAnswerId={toggleAnswerId}
             isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
             storedAnswers={storedAnswers} startModal={startModal} 

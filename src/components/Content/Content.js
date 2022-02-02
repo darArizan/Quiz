@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react';
 import AnswerButton from '../AnswerButton/AnswerButton';
-import './Content.scss';
 
 
 export default function Content({data, index, toggleAnswerId, correct, selected, storedAnswers, startModal, isNextAfterPrev, setNextAfterPrev, isSubmit, setIsSubmit}) { 

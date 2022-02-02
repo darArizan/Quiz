@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import './ControlButtons.scss';
  
 
 export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview, disabled, setDisabled, timer, setTimer, time, setTime}) {
@@ -53,6 +52,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
 
   useEffect(()=>{
     if(correct.length>0 && isSubmit && !isPrev){
+      console.log('prosooo'+correct, isSubmit, isPrev);
       storeAnswers()
       handlePoints()
     }

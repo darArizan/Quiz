@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Timer.scss";
 
-function Timer({timer, setTimer, isSubmit, setIsSubmit, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime}) {
+function Timer({timer, setTimer, isSubmit, setIsSubmit, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime, countDown, setCountDown}) {
 
-  const [countDown,setCountDown] = useState(null)
 
 
 

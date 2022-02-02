@@ -2,10 +2,8 @@
 
 .modal {
     background-color:$backgroundColor;
-    width: 800px;
-    height: 500px;
-    top: 0;
-    left: 0;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     z-index: 15;
     &__button {

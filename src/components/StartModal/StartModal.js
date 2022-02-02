@@ -1,5 +1,4 @@
 import React from 'react'
-import './StartModal.scss'
 function StartModal({startModal, setStartModal, timer, setTimer}) {
 
     function handleStartModal() {

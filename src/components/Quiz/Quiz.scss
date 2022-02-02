@@ -1,14 +1,9 @@
 @import '../../scss/color';
 
-body {
-    // background-color: $backgroundColor;
-   
-
-}
 
 .quiz {
-    width: 800px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     background-color: $backgroundColor;
     position: relative;

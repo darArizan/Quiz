@@ -1,5 +1,18 @@
+//GLOBAL
 @import 'color';
 @import 'mixins';
 @import 'reset';
 @import 'typo';
 @import 'variables';
+
+
+//COMPONENTS
+@import '../components/StartModal/StartModal';
+@import '../components/Quiz/Quiz';
+@import '../components/Header/Header';
+@import '../components/Timer/Timer';
+@import '../components/Content/Content';
+@import '../components/AnswerButton/AnswerButton';
+@import '../components/ControlButtons/ControlButtons';
+@import '../components/Preview/Preview';
+@import '../components/PreviewAnswer/PreviewAnswer';

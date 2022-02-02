@@ -9,16 +9,17 @@
     margin:20px;
     border-radius: 100px;
     position: relative;
+    
+    &--selected{    
+        background-color: $hoverSelect;
+        border-color: $selectedBorder;
+    }
 
     &--selected-incorrect{
         border-color: $selectedBorder;
         background-color: $selectedIncorrect;
     }
 
-    &--selected{    
-        background-color: $hoverSelect;
-        border-color: $selectedBorder;
-    }
     &--selected-correct{    
         background-color: $selectedCorrect;
         border-color: $selectedBorder;
@@ -42,7 +43,9 @@
         background: linear-gradient(yellow, cadetblue);
         border-radius: 100px;
     }
-    &:hover {
+   
+    &:not([class*="--"]):hover{
         background-color: $hoverSelect;
     }
+
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './AnswerButton.scss';
 
 const AnswerButton = ({text, i, index, id, toggleAnswerId,stateClass, startModal, storedAnswers, isSubmit, setIsSubmit}) => { 
 

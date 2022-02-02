@@ -1,7 +1,5 @@
 import React from 'react'
 import PreviewAnswer from '../PreviewAnswer/PreviewAnswer'
-import Header from '../Header/Header'
-import './Preview.scss'
 
 
 export default function Preview({storedAnswers,points,isPreview}) {
