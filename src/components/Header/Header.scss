@@ -2,4 +2,12 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 100px;
+    &__reset{
+        background-image: url('../../assets/images/frame.png');
+        width: 100px;
+        height: 130px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
 }
