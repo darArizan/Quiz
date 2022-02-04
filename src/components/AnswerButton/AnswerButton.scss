@@ -1,50 +1,59 @@
 @import '../../scss/color';
 
-.content__answer{
-
-    line-height: 40px;
+.content__answer {
+    word-wrap: break-word;
+    line-height: 1.7em;
     background-color: $default;
-    border: 1px solid rgb(87, 82, 82);
-    padding: 5px 30px;
-    margin:20px;
+    padding: 15px 30px;
+    margin-bottom: 20px;
     border-radius: 100px;
     position: relative;
+    display: block;
+    width: 100%;
+    font-size: 1.8em;
+    text-align: left;
     
-    &--selected{    
-        background-color: $hoverSelect;
-        border-color: $selectedBorder;
-    }
-
-    &--selected-incorrect{
-        border-color: $selectedBorder;
-        background-color: $selectedIncorrect;
-    }
-
-    &--selected-correct{    
-        background-color: $selectedCorrect;
-        border-color: $selectedBorder;
-    }
- 
-    &--notselected-correct{
-        background-color: $selectedCorrect;
-     
-    }
-    &--notselected-incorrect{
-        background-color: $selectedIncorrect;
-    }
-    &:before{
+    &::before {
         position: absolute;
         width: calc(100% + 8px);
         height: calc(100% + 8px);
         top: -4px;
         left: -4px;
-        z-index: -1; 
-        content:"";
-        background: linear-gradient(yellow, cadetblue);
+        z-index: -1;
+        content: "";
+        background: $defaultBorder;
         border-radius: 100px;
     }
-   
-    &:not([class*="--"]):hover{
+    
+    &--selected {
+        background-color: $hoverSelect;
+        &::before{
+            background: $selectedBorder;
+        }
+    
+    }
+
+    &--selected-incorrect {
+        border-color: $selectedBorder;
+        background-color: $selectedIncorrect;
+    }
+
+    &--selected-correct {
+        background-color: $selectedCorrect;
+        border-color: $selectedBorder;
+    }
+
+    &--notselected-correct {
+        background-color: $selectedCorrect;
+
+    }
+
+    &--notselected-incorrect {
+        background-color: $selectedIncorrect;
+    }
+
+
+    &:not([class*="--"]):hover {
         background-color: $hoverSelect;
     }
 

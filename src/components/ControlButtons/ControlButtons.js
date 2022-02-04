@@ -95,13 +95,13 @@ export default function ControlButtons({points, index, setPoints, selected, setS
 
   if(data) {
   return (
-    <div className="quiz__buttons">
-      <div>{index>1 ? <button  disabled={disabled} className="quiz__button"   onClick={handlePrevious}>Previous</button> : ''}</div>
+    <div className="control">
+      <div>{index>1 ? <button  disabled={disabled} className="control__button"   onClick={handlePrevious}>Previous</button> : ''}</div>
       <div>{!toggleCtrlBtn && !isPrev ? 
-        <button className="quiz__button" onClick={handleSubmit}>Submit</button> :
+        <button className="control__button" onClick={handleSubmit}>Submit</button> :
         index !== data.length ?
-          <button onClick={handleNext} className="quiz__button">Next</button> :
-          <button className="quiz__button" onClick={()=>setIsPreview(true)}>Preview</button>
+          <button onClick={handleNext} className="control__button">Next</button> :
+          <button className="control__button" onClick={()=>setIsPreview(true)}>Preview</button>
       }</div>
     </div>
   )
