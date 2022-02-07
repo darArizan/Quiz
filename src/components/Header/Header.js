@@ -36,7 +36,7 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
     <>
     {!isPreview ?
         <div className="header">
-          {points}
+          <div className="header__points">Points: {points}</div>
           <button className="header__reset" onClick={(handleReset)}>Reset</button>
           <Timer time={time} setTime={setTime} timer={timer} setTimer={setTimer} setIsSubmit={setIsSubmit} setDisabled={setDisabled} toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} isSubmit={isSubmit} countDown={countDown} setCountDown={setCountDown}/>
         </div> :
