@@ -19,10 +19,12 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
     setIsNext(false);
     setNextAfterPrev(false);
     setToggleCtrlBtn(false);
+    if(!isPreview) {
+      setTimer(false);
+      setTime(5);
+      clearInterval(countDown);
+    }
     setIsPreview(false)
-    setTimer(false);
-    setTime(5);
-    clearInterval(countDown);
   }
 
   // useEffect(()=> {
@@ -40,8 +42,8 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
           <button className="header__reset" onClick={(handleReset)}>Reset</button>
           <Timer time={time} setTime={setTime} timer={timer} setTimer={setTimer} setIsSubmit={setIsSubmit} setDisabled={setDisabled} toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} isSubmit={isSubmit} countDown={countDown} setCountDown={setCountDown}/>
         </div> :
-        <div>
-          <button onClick={handleReset}>Reset</button>    
+        <div className="header header--preview">
+          <button className="header__reset" onClick={handleReset}>Reset</button>    
         </div>
     }
     </>

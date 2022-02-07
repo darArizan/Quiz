@@ -1,0 +1,16 @@
+.preview {
+    background-color: $backgroundColor;
+    position: relative;
+    z-index: 1;
+    font-size: 1.8rem;
+
+    &__points {
+        font-size: 1.8rem;
+        text-align: center;
+        color: $fontColor;
+        margin-bottom: 10px;
+    }
+    &__title {
+        color: $fontColor;
+    }
+}
