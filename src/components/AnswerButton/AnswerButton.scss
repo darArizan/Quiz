@@ -27,6 +27,7 @@
     
     &--selected {
         background-color: $hoverSelect;
+        color: black;
         &::before{
             background: $selectedBorder;
         }
@@ -52,9 +53,24 @@
         background-color: $selectedIncorrect;
     }
 
+    &[class*="--"] {
+        color: rgb(255,255,255);
+    }
 
     &:not([class*="--"]):hover {
         background-color: $hoverSelect;
     }
 
+}
+
+@media screen and (min-width:768px) {
+    .content__answers {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .content__answer {
+        width: calc(50% - 15px);
+        margin-bottom: 30px;
+    }
 }
