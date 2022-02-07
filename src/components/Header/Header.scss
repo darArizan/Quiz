@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 100px;
-    font-size: 1.6em;
+    margin-bottom: 55px;
+    font-size: 1.6rem;
     color: $fontColor;
 
     &__points{
@@ -13,11 +13,15 @@
         background-image: url('../../assets/images/frame.png');
         width: 90px;
         height: 105px;
+        filter:drop-shadow( -2px 2px 2px rgba(0,0,0,.7));
         background-size: contain;
         background-repeat: no-repeat;
         background-color: transparent;
         color: $fontColor;
         font-size: inherit;
         font-family: inherit;
+    }
+    &--preview {
+        justify-content: center;
     }
 }

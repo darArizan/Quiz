@@ -38,13 +38,15 @@ export default function Content({data, index, toggleAnswerId, correct, selected,
           return(
             <div key={el.id} >
               <div className="content__title">{el.title}</div>
-              {el.answerOptions.map((el, i) => {
-                return <AnswerButton key={i} i={i} index={index} text={el.answerText} id={el.answerId} 
-                isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
-                storedAnswers={storedAnswers} startModal={startModal} 
-                toggleAnswerId={toggleAnswerId} stateClass={setButtonState(el)} isSubmit={isSubmit} setIsSubmit={setIsSubmit}/>
-              })
-              }
+              <div className="content__answers">
+                {el.answerOptions.map((el, i) => {
+                  return <AnswerButton key={i} i={i} index={index} text={el.answerText} id={el.answerId} 
+                  isNextAfterPrev={isNextAfterPrev} setNextAfterPrev={setNextAfterPrev}
+                  storedAnswers={storedAnswers} startModal={startModal} 
+                  toggleAnswerId={toggleAnswerId} stateClass={setButtonState(el)} isSubmit={isSubmit} setIsSubmit={setIsSubmit}/>
+                })
+                }
+              </div>
             </div>
           )}
       })}

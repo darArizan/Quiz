@@ -35,17 +35,18 @@ export default function Preview({storedAnswers,points,isPreview}) {
     return (
     <>
             <div className="preview">
-                <div>{points}</div>
+                <div className="preview__points">Total points: {points}</div>
                     {storedAnswers.map((element,i)=>{
                return(
                 <div key={i}>
-                    <div>{element.title}</div>
-                    {element.answerOptions.map(el=>{
-                      return(
-                        <PreviewAnswer text={el.answerText} stateClass={setPreviewState(element.correctAnswers,element.selectedAnswers,el)}/>
-                    )
-                    })}
-                    
+                    <div className="preview__title">{element.title}</div>
+                    <div className="preview__answers">
+                      {element.answerOptions.map(el=>{
+                        return(
+                          <PreviewAnswer text={el.answerText} stateClass={setPreviewState(element.correctAnswers,element.selectedAnswers,el)}/>
+                      )
+                      })}
+                    </div>
                 </div>
                )
            })}

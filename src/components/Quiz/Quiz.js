@@ -93,7 +93,7 @@ const [countDown,setCountDown] = useState(null)
             disabled={disabled} setDisabled={setDisabled}/>
         </div>
             : 
-            <>
+            <div className="quiz">
             <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
             setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
@@ -101,7 +101,7 @@ const [countDown,setCountDown] = useState(null)
             setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
             /> 
            <Preview storedAnswers={storedAnswers} points={points} isPreview={isPreview} />
-           </>
+           </div>
         }
         </>
     )

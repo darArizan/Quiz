@@ -1,12 +1,16 @@
+.preview__answers{
+    margin-bottom: 50px;
+}
 .preview__answer{
 
     line-height: 40px;
     background-color: beige;
     border: 1px solid rgb(87, 82, 82);
     padding: 5px 30px;
-    margin:20px;
+    margin:20px 0px;
     position: relative;
-    margin-bottom: 20px;
+    word-wrap: break-word;
+
 
     &--selected-incorrect{
         border-color: chartreuse;
