@@ -55,10 +55,7 @@
         background-color: $selectedIncorrect;
         color: $fontColor;
     }
-
-    // &[class*="--"] {
-    //     color: rgb(255,255,255);
-    // }
+ 
 
     &:not([class*="--"]):hover {
         background-color: $hoverSelect;

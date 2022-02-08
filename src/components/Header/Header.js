@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Timer from '../Timer/Timer';
 
 export default function Header({points, setIndex, setData, setNextAfterPrev, setStartModal, setSelected, setCorrect, setStoredAnswers, setPoints, setIsNext, setIsPrev, isSubmit, setIsSubmit, isPreview, setIsPreview, timer, setTimer, setDisabled, toggleCtrlBtn, setToggleCtrlBtn, time, setTime, countDown, setCountDown}) {
-  // console.log(points);
-
-  // const[isReset, setIsReset] = useState(false);
+ 
 
   function handleReset() {
     setPoints(0);
@@ -18,21 +16,14 @@ export default function Header({points, setIndex, setData, setNextAfterPrev, set
     setStoredAnswers(null);
     setIsNext(false);
     setNextAfterPrev(false);
-    setToggleCtrlBtn(false);
-    if(!isPreview) {
-      setTimer(false);
-      setTime(5);
-      clearInterval(countDown);
-    }
+    setToggleCtrlBtn(false); 
+    setTimer(false);
+    setTime(5);
+    clearInterval(countDown); 
     setIsPreview(false)
   }
 
-  // useEffect(()=> {
-  //   if(isReset) {
-  //     handleReset();
-  //   }
-  // },[isReset])
-
+  
 
   return (
     <>
