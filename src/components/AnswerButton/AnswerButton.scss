@@ -12,7 +12,11 @@
     width: 100%;
     font-size: 1.8rem;
     text-align: left;
-    
+
+    &:last-child:nth-child(odd) {
+        margin: 0 auto 20px;
+    }
+
     &::before {
         position: absolute;
         width: calc(100% + 8px);
@@ -24,38 +28,41 @@
         background: $defaultBorder;
         border-radius: 100px;
     }
-    
+
     &--selected {
         background-color: $hoverSelect;
         color: black;
-        &::before{
-            background: $selectedBorder;
-        }
-    
+
     }
 
     &--selected-incorrect {
         border-color: $selectedBorder;
         background-color: $selectedIncorrect;
         color: $fontColor;
+
     }
 
     &--selected-correct {
         background-color: $selectedCorrect;
         border-color: $selectedBorder;
         color: $fontColor;
+
+
+
     }
 
     &--notselected-correct {
         background-color: $selectedCorrect;
         color: $fontColor;
+
     }
 
     &--notselected-incorrect {
         background-color: $selectedIncorrect;
         color: $fontColor;
+
     }
- 
+
 
     &:not([class*="--"]):hover {
         background-color: $hoverSelect;
@@ -69,6 +76,7 @@
         justify-content: space-between;
         flex-wrap: wrap;
     }
+
     .content__answer {
         width: calc(50% - 15px);
         margin-bottom: 30px;

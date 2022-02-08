@@ -10,7 +10,12 @@
         color: $fontColor;
         padding: 0 30px;
         border-radius: 100px;
-        
+        transition: .2 ease;
+
+        &:hover {
+            background-color: darken($controlButton, 10%);
+        }
+
         &:disabled {
             opacity: .7;
             pointer-events: none;
