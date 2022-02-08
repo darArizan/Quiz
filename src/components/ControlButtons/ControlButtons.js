@@ -3,18 +3,11 @@ import React,{useState, useEffect} from 'react';
 
 export default function ControlButtons({points, index, setPoints, selected, setSelected, setIndex, data,correct,isNext, setIsNext, isPrev, setIsPrev, isSubmit, setIsSubmit, toggleCtrlBtn, setToggleCtrlBtn, isNextAfterPrev, setNextAfterPrev, setCorrect,setStoredAnswers,storedAnswers,setIsPreview, disabled, setDisabled, timer, setTimer, time, setTime}) {
 
-  // const[isPrev, setIsPrev] = useState(false);
-  // const[toggleCtrlBtn,setToggleCtrlBtn] = useState(false)
-  // const[isNext, setIsNext] = useState(false)
-  // const[isNextAfterPrev, setNextAfterPrev] = useState(false)
-  // const[isSubmit, setIsSubmit] = useState(false)
-  // const[disabled,setDisabled] = useState(false)
 
   async function fetchCorrectAnswers(){
     const response = await fetch(`http://localhost:3010/correctAnswers/${index}`)
     const correctData  = await response.json()
     setCorrect(correctData.correct)
-  
   }
   
   function handleSubmit(){
@@ -51,8 +44,7 @@ export default function ControlButtons({points, index, setPoints, selected, setS
   }, [isSubmit])
 
   useEffect(()=>{
-    if(correct.length>0 && isSubmit && !isPrev){
-      console.log('prosooo'+correct, isSubmit, isPrev);
+    if(correct.length>0 && isSubmit && !isPrev){ 
       storeAnswers()
       handlePoints()
     }

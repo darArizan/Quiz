@@ -25,8 +25,7 @@ const [time, setTime] = useState(5);
 const [disabled,setDisabled] = useState(false);
 const [countDown,setCountDown] = useState(null)
 
-// console.log(points, correct, selected, index, startModal, storedAnswers, data, isPrev, isNext, isSubmit, isNextAfterPrev, toggleCtrlBtn);
-
+ 
 
     async function fetchData(){
         const response = await fetch("http://localhost:3000/questions")
@@ -94,12 +93,19 @@ const [countDown,setCountDown] = useState(null)
         </div>
             : 
             <div className="quiz">
-            <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
+            {/* <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
             setIndex={setIndex} setStartModal={setStartModal} setData={setData}
             setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
             setIsNext={setIsNext} setIsPrev={setIsPrev} setIsSubmit={setIsSubmit}
             setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
-            /> 
+            />  */}
+            <Header points={points} setSelected={setSelected} setCorrect={setCorrect} 
+            setIndex={setIndex} setStartModal={setStartModal} setData={setData}
+            toggleCtrlBtn={toggleCtrlBtn} setToggleCtrlBtn={setToggleCtrlBtn} setNextAfterPrev={setNextAfterPrev}
+            setIsNext={setIsNext} setIsPrev={setIsPrev} isSubmit={isSubmit} setIsSubmit={setIsSubmit}
+            setStoredAnswers={setStoredAnswers} setPoints={setPoints} isPreview={isPreview} setIsPreview={setIsPreview}
+            timer={timer} setTimer={setTimer} time={time} setTime={setTime}
+            setDisabled={setDisabled} countDown={countDown} setCountDown={setCountDown} />
            <Preview storedAnswers={storedAnswers} points={points} isPreview={isPreview} />
            </div>
         }

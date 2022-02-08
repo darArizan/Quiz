@@ -37,25 +37,25 @@
     &--selected-incorrect {
         border-color: $selectedBorder;
         background-color: $selectedIncorrect;
+        color: $fontColor;
     }
 
     &--selected-correct {
         background-color: $selectedCorrect;
         border-color: $selectedBorder;
+        color: $fontColor;
     }
 
     &--notselected-correct {
         background-color: $selectedCorrect;
-
+        color: $fontColor;
     }
 
     &--notselected-incorrect {
         background-color: $selectedIncorrect;
+        color: $fontColor;
     }
-
-    &[class*="--"] {
-        color: rgb(255,255,255);
-    }
+ 
 
     &:not([class*="--"]):hover {
         background-color: $hoverSelect;

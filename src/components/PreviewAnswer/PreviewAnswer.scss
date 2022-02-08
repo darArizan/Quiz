@@ -5,40 +5,12 @@
 
     line-height: 40px;
     background-color: beige;
-    border: 1px solid rgb(87, 82, 82);
     padding: 5px 30px;
     margin:20px 0px;
     position: relative;
     word-wrap: break-word;
-
-
-    &--selected-incorrect{
-        border-color: chartreuse;
-        background-color: red;
-    }
-
-    &--selected{    
-        background-color: rgb(178, 192, 164);
-        border-color: chartreuse;
-    }
-    &--selected-correct{    
-        background-color: chartreuse;
-        border-color: darkgreen;
-    }
-
-    &--selected-incorrect{
-        border-color: chartreuse;
-        background-color: red;
-    }
- 
-    &--notselected-correct{
-        background-color: chartreuse;
-        border-color: red;
-    }
-    &--notselected-incorrect{
-        background-color: beige;
-        border-color: red;
-    }
+    color: $fontColor;
+    
     &:before{
         position: absolute;
         width: calc(100% + 8px);
@@ -47,7 +19,29 @@
         left: -4px;
         z-index: -1; 
         content:"";
-        background: linear-gradient(yellow, cadetblue);
+        background: $defaultBorder;
+    }
+   
+    &--selected-incorrect {
+        background-color: $selectedIncorrect;
+        &::before{
+            background: $selectedBorder;
+        }
+    }
 
+    &--selected-correct {
+        background-color: $selectedCorrect;
+        &::before{
+            background: $selectedBorder;
+        }
+    }
+
+    &--notselected-correct {
+        background-color: $selectedCorrect;
+
+    }
+
+    &--notselected-incorrect {
+        background-color: $selectedIncorrect;
     }
 }
