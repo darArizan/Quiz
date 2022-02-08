@@ -21,11 +21,26 @@
         content:"";
         background: $defaultBorder;
     }
+    &:after {
+        position: absolute;
+        text-align: center;
+        font-size: 12px;
+        line-height: 18px;
+        color: rgba(0, 0, 0, .3);
+        top: -18px;
+        left: auto;
+        right: -10px;
+        background-color: whitesmoke;
+
+    }
    
     &--selected-incorrect {
         background-color: $selectedIncorrect;
         &::before{
             background: $selectedBorder;
+        }
+        &:after {
+            content: "Your answer";
         }
     }
 
@@ -34,14 +49,21 @@
         &::before{
             background: $selectedBorder;
         }
+        &:after {
+            content: "Your answer";
+        }
     }
 
     &--notselected-correct {
-        background-color: $selectedCorrect;
+        background-color:rgb(113, 75, 156); ;
+        &:after {
+            content: "Correct answer";
+        }
 
     }
 
     &--notselected-incorrect {
-        background-color: $selectedIncorrect;
+        background-color: rgb(203, 169, 241);
+     
     }
 }
