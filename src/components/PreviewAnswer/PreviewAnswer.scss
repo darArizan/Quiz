@@ -36,11 +36,20 @@
    
     &--selected-incorrect {
         background-color: $selectedIncorrect;
+        padding-right: 60px;
         &::before{
             background: $selectedBorder;
         }
         &:after {
-            content: "Your answer";
+            content: "\2718";
+            font-size: 40px;
+            background-color: transparent;
+            color: #fdc3c3;
+            text-shadow: 1px 1px rgb(0, 0, 0);
+            top: 50%;
+            right: 13px;
+            line-height: 1;
+            transform: translateY(-50%);
         }
     }
 
@@ -49,15 +58,32 @@
         &::before{
             background: $selectedBorder;
         }
-        &:after {
-            content: "Your answer";
+        &:after { 
+        content: " ✔";
+        font-size: 40px;
+        background-color: transparent;
+        color: chartreuse;
+        text-shadow: 1px 1px black;
+        top: 50%;
+        right: 13px;
+        line-height: 1;
+        transform: translateY(-50%);
         }
     }
 
     &--notselected-correct {
         background-color:rgb(113, 75, 156); ;
         &:after {
-            content: "Correct answer";
+        content: "Correct";
+        position: absolute;
+        text-align: center;
+        font-size: 16px;
+        line-height: 18px;
+        color: rgb(0 255 28 / 94%);
+        top: 3px;
+        left: auto;
+        right: 7px;
+        background-color: rgba(0, 0, 0, 0);
         }
 
     }

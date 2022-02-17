@@ -32,7 +32,9 @@
     &--selected {
         background-color: $hoverSelect;
         color: black;
-
+        &::before{
+            background: $selectedBorder;
+        }
     }
 
     &--selected-incorrect {
