@@ -37,7 +37,10 @@ export default function Content({data, index, toggleAnswerId, correct, selected,
         if(index === el.id){
           return(
             <div key={el.id} >
-              <div className="content__title">{el.title}</div>
+              <div className="content__title">
+                <div>({storedAnswers? `${index} / ${storedAnswers.length}`:""})</div> 
+                {el.title}
+              </div>
               <div className="content__answers">
                 {el.answerOptions.map((el, i) => {
                   return <AnswerButton key={i} i={i} index={index} text={el.answerText} id={el.answerId} 
